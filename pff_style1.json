@@ -99,12 +99,12 @@
     "bearing": 0,
     "pitch": 0,
     "sources": {
-        "pff": {
-            "url": "http://dvrpc-freight.michaelruane.com/pff_tiles.json",
-            "type": "vector"
-        },
         "mapbox://mapbox.mapbox-streets-v6": {
             "url": "mapbox://mapbox.mapbox-streets-v6",
+            "type": "vector"
+        },
+        "pff": {
+            "url": "http://dvrpc-freight.michaelruane.com/pff_tiles.json",
             "type": "vector"
         },
         "mapbox://mruane.3anli2ln": {
@@ -3617,6 +3617,10 @@
                     "stops": [
                         [
                             0,
+                            0
+                        ],
+                        [
+                            10,
                             0
                         ],
                         [
