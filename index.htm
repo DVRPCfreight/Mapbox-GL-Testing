@@ -2,14 +2,15 @@
 <html>
 <head>
     <meta charset='utf-8'/>
-    <title>Tilehut.js Vector Map with Mapbox GL JS</title>
+    <title>Proof of Concept</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 
 <body>
@@ -20,24 +21,20 @@
 		// Nota Bene:
 		// Please make sure to serve this file via a webserver as otherwise your browser might not load the external 'style.json' file
 		mapboxgl.accessToken = 'pk.eyJ1IjoibXJ1YW5lIiwiYSI6ImNpZ3dnaGF1bjBzNGZ3N201bTQwN3h6YngifQ.pw1khldm3UDHd56okxc5bQ';
-		// var map = new mapboxgl.Map({
-		//     container: 'map',
-		//     bearing: 0,
-		//     center: [-74.50, 40], // starting position
-		//     zoom: 9, // starting zoom
-		//     style: 'style.json', // stylesheet location (external file) or style object
-		//     hash: true	// adds zoom level and coordinates in the url (e.g. http://localhost:8080/#3.84/58.63/43.81)
-		// });
+
 		
 
-var map = new mapboxgl.Map({
-  container: 'map',
-  center: [-74.9, 40.2],
-  zoom: 9,
-  style: 'pff_style.json' 
-});
+		var map = new mapboxgl.Map({
+		  container: 'map',
+		  center: [-74.9, 40.2],
+		  zoom: 9,
+		  style: 'pff_style.json' 
+		});
 
-map.addControl(new mapboxgl.Navigation({position: 'top-left'}));
+		// navigation control
+		var nav = new mapboxgl.NavigationControl();
+		map.addControl(nav, 'top-left');
+
 	</script>
 </body>
 </html>
