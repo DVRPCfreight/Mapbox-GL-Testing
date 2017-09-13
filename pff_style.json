@@ -111,10 +111,6 @@
         "mapbox://mapbox.mapbox-streets-v6": {
             "url": "mapbox://mapbox.mapbox-streets-v6",
             "type": "vector"
-        },
-        "mapbox://mruane.3anli2ln": {
-            "url": "mapbox://mruane.3anli2ln",
-            "type": "vector"
         }
     },
     "sprite": "mapbox://sprites/mruane/cik5ms8hp002p04ly651sqxkm",
@@ -179,7 +175,7 @@
             "source": "mapbox://mapbox.mapbox-streets-v6",
             "id": "landuse_park",
             "paint": {
-                "fill-color": "#e4e4e4"
+                "fill-color": "#dde1d5"
             },
             "source-layer": "landuse"
         },
@@ -200,7 +196,7 @@
             "source": "mapbox://mapbox.mapbox-streets-v6",
             "id": "landuse_wood",
             "paint": {
-                "fill-color": "#e0e0e0"
+                "fill-color": "#dde1d5"
             },
             "source-layer": "landuse"
         },
@@ -255,7 +251,7 @@
                 ]
             ],
             "paint": {
-                "line-color": "#d6d6d6",
+                "line-color": "#d0dadb",
                 "line-width": {
                     "base": 1,
                     "stops": [
@@ -294,7 +290,7 @@
                 ]
             ],
             "paint": {
-                "line-color": "#d6d6d6",
+                "line-color": "#d0dadb",
                 "line-width": {
                     "base": 1,
                     "stops": [
@@ -323,7 +319,7 @@
                 "visibility": "visible"
             },
             "paint": {
-                "fill-color": "#d6d6d6"
+                "fill-color": "#d0dadb"
             },
             "metadata": {
                 "mapbox:group": "1444850923457.5469"
@@ -744,21 +740,6 @@
         {
             "interactive": true,
             "layout": {
-                "line-cap": "round",
-                "line-join": "round"
-            },
-            "type": "line",
-            "source": "mapbox://mruane.3anli2ln",
-            "id": "counties-outline",
-            "paint": {
-                "line-width": 4,
-                "line-color": "rgba(136,153,191,1)"
-            },
-            "source-layer": "counties"
-        },
-        {
-            "interactive": true,
-            "layout": {
                 "text-size": {
                     "base": 1,
                     "stops": [
@@ -864,7 +845,7 @@
             "source": "mapbox://mapbox.mapbox-streets-v6",
             "id": "waterway-label",
             "paint": {
-                "text-color": "#929292"
+                "text-color": "#819193"
             },
             "source-layer": "waterway_label"
         },
