@@ -945,6 +945,20 @@
         },
         {
             "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "tim",
+            "id": "highways",
+            "paint": {
+                "line-color": "#545454",
+                "line-width": 1
+            },
+            "source-layer": "tim_nonegeojson"
+        },
+        {
+            "interactive": true,
             "minzoom": 1,
             "layout": {
                 "visibility": "visible",
@@ -1268,20 +1282,7 @@
             },
             "source-layer": "road_label"
         },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "tim",
-            "id": "highways",
-            "paint": {
-                "line-color": "#312b6a",
-                "line-width": 2
-            },
-            "source-layer": "tim_nonegeojson"
-        },
+        
         {
             "interactive": true,
             "layout": {
@@ -1508,146 +1509,7 @@
             },
             "source-layer": "water_label"
         },
-        {
-            "interactive": true,
-            "layout": {
-                "text-optional": false,
-                "text-line-height": 1,
-                "text-size": 11.5,
-                "text-allow-overlap": true,
-                "icon-image": "water",
-                "symbol-avoid-edges": false,
-                "text-ignore-placement": false,
-                "text-font": [
-                    "Open Sans Condensed Bold",
-                    "Arial Unicode MS Regular"
-                ],
-                "icon-allow-overlap": true,
-                "symbol-placement": "point",
-                "visibility": "visible",
-                "text-offset": [
-                    0,
-                    0.9
-                ],
-                "icon-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.35
-                        ],
-                        [
-                            22,
-                            0.65
-                        ]
-                    ]
-                },
-                "text-anchor": "top",
-                "icon-padding": 0,
-                "text-max-width": 6,
-                "icon-ignore-placement": false
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "ports",
-            "paint": {
-                "text-color": "#396ab2",
-                "text-halo-width": 2,
-                "text-halo-color": "rgba(255,255,255,1)"
-            },
-            "source-layer": "ports_pts"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "icon-image": "rail",
-                "icon-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.35
-                        ],
-                        [
-                            22,
-                            0.65
-                        ]
-                    ]
-                },
-                "icon-allow-overlap": true,
-                "visibility": "visible"
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "intermodal",
-            "paint": {},
-            "source-layer": "intermodal_pts"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible",
-                "text-font": [
-                    "Open Sans Condensed Bold",
-                    "Arial Unicode MS Regular"
-                ],
-                "text-size": 11.5,
-                "icon-image": "rail",
-                "text-anchor": "center",
-                "icon-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.35
-                        ],
-                        [
-                            22,
-                            0.65
-                        ]
-                    ]
-                },
-                "text-offset": [
-                    0,
-                    1.2
-                ],
-                "icon-allow-overlap": true
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "rail-yards",
-            "paint": {
-                "text-halo-color": "#fff",
-                "text-halo-width": 2,
-                "text-color": "rgba(219,139,0,1)"
-            },
-            "source-layer": "rail_yards_pts"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "icon-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.35
-                        ],
-                        [
-                            22,
-                            0.65
-                        ]
-                    ]
-                },
-                "icon-image": "hwy",
-                "visibility": "visible"
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "truck-pk",
-            "paint": {},
-            "source-layer": "truck_parking_pts"
-        },
+        
         {
             "interactive": true,
             "minzoom": 8,
@@ -2411,62 +2273,7 @@
             },
             "source-layer": "highways"
         },
-        {
-            "interactive": true,
-            "minzoom": 10,
-            "layout": {
-                "text-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            8,
-                            8
-                        ],
-                        [
-                            20,
-                            17
-                        ]
-                    ]
-                },
-                "text-allow-overlap": false,
-                "text-transform": "none",
-                "symbol-spacing": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            10,
-                            200
-                        ],
-                        [
-                            15,
-                            600
-                        ]
-                    ]
-                },
-                "text-font": [
-                    "Open Sans Semibold",
-                    "Arial Unicode MS Regular"
-                ],
-                "symbol-placement": "line",
-                "text-rotation-alignment": "map",
-                "text-keep-upright": true,
-                "text-field": "{NAME}"
-            },
-            "metadata": {
-                "mapbox:group": "1454505898173.9072"
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "freight-rail-labels",
-            "paint": {
-                "text-halo-color": "rgba(255,157,0,1)",
-                "text-halo-blur": 0,
-                "text-color": "rgba(255,255,255,1)",
-                "text-opacity": 1,
-                "text-halo-width": 2
-            },
-            "source-layer": "freight_rail"
-        },
+        
         {
             "interactive": true,
             "minzoom": 10,
