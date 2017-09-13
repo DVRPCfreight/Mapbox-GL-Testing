@@ -104,7 +104,7 @@
             "type": "vector"
         },
         "tim": {
-            "url": "http://dvrpc-freight.michaelruane.com/timNet.json",
+            "url": "http://a.michaelruane.com/timNet.json",
             "type": "vector"
         },
 
@@ -114,10 +114,6 @@
         },
         "mapbox://mruane.3anli2ln": {
             "url": "mapbox://mruane.3anli2ln",
-            "type": "vector"
-        },
-        "mapbox://mapbox.mapbox-terrain-v2": {
-            "url": "mapbox://mapbox.mapbox-terrain-v2",
             "type": "vector"
         }
     },
@@ -135,116 +131,7 @@
             },
             "interactive": true
         },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850978189.4492"
-            },
-            "filter": [
-                "==",
-                "class",
-                "snow"
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "landcover_snow",
-            "paint": {
-                "fill-color": "#fff",
-                "fill-opacity": 0.5
-            },
-            "source-layer": "landcover"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850978189.4492"
-            },
-            "filter": [
-                "==",
-                "class",
-                "crop"
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "landcover_crop",
-            "paint": {
-                "fill-color": "#ececec",
-                "fill-opacity": 0.5
-            },
-            "source-layer": "landcover"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850978189.4492"
-            },
-            "filter": [
-                "==",
-                "class",
-                "grass"
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "landcover_grass",
-            "paint": {
-                "fill-color": "#e5e5e5",
-                "fill-opacity": 0.5
-            },
-            "source-layer": "landcover"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850978189.4492"
-            },
-            "filter": [
-                "==",
-                "class",
-                "scrub"
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "landcover_scrub",
-            "paint": {
-                "fill-color": "#e3e3e3",
-                "fill-opacity": 0.5
-            },
-            "source-layer": "landcover"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850978189.4492"
-            },
-            "filter": [
-                "==",
-                "class",
-                "wood"
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "landcover_wood",
-            "paint": {
-                "fill-color": "#dcdcdc",
-                "fill-opacity": 0.5
-            },
-            "source-layer": "landcover"
-        },
+        
         {
             "interactive": true,
             "layout": {
@@ -318,210 +205,7 @@
             "source-layer": "landuse"
         },
         
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850948248.0754"
-            },
-            "filter": [
-                "==",
-                "level",
-                94
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "hillshade_highlight_bright",
-            "paint": {
-                "fill-color": "#fff",
-                "fill-opacity": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            15,
-                            0.15
-                        ],
-                        [
-                            17,
-                            0.05
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "hillshade"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850948248.0754"
-            },
-            "filter": [
-                "==",
-                "level",
-                90
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "hillshade_highlight_med",
-            "paint": {
-                "fill-color": "#fff",
-                "fill-opacity": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            15,
-                            0.15
-                        ],
-                        [
-                            17,
-                            0.05
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "hillshade"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850948248.0754"
-            },
-            "filter": [
-                "==",
-                "level",
-                89
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "hillshade_shadow_faint",
-            "paint": {
-                "fill-color": "#666",
-                "fill-opacity": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            14,
-                            0.06
-                        ],
-                        [
-                            17,
-                            0.01
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "hillshade"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850948248.0754"
-            },
-            "filter": [
-                "==",
-                "level",
-                78
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "hillshade_shadow_med",
-            "paint": {
-                "fill-color": "#666",
-                "fill-opacity": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            14,
-                            0.06
-                        ],
-                        [
-                            17,
-                            0.01
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "hillshade"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850948248.0754"
-            },
-            "filter": [
-                "==",
-                "level",
-                67
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "hillshade_shadow_dark",
-            "paint": {
-                "fill-color": "#888888",
-                "fill-opacity": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            14,
-                            0.06
-                        ],
-                        [
-                            17,
-                            0.01
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "hillshade"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "metadata": {
-                "mapbox:group": "1444850948248.0754"
-            },
-            "filter": [
-                "==",
-                "level",
-                56
-            ],
-            "type": "fill",
-            "source": "mapbox://mapbox.mapbox-terrain-v2",
-            "id": "hillshade_shadow_extreme",
-            "paint": {
-                "fill-color": "#999",
-                "fill-opacity": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            14,
-                            0.06
-                        ],
-                        [
-                            17,
-                            0.01
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "hillshade"
-        },
+       
         {
             "id": "building",
             "type": "fill",
@@ -945,6 +629,69 @@
         },
         {
             "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "tim",
+            "id": "highways",
+            "paint": {
+                "line-color": "#d5d5d5",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        
+                        [
+                            12,
+                            2.6
+                        ],
+                        [
+                            13,
+                            4.6
+                        ],
+                        [
+                            16,
+                            7.6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "tim_nonegeojson"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "tim",
+            "id": "highway-inner",
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            2
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "tim_nonegeojson"
+        },
+        
+        {
+            "interactive": true,
             "minzoom": 1,
             "layout": {
                 "visibility": "visible",
@@ -1268,20 +1015,7 @@
             },
             "source-layer": "road_label"
         },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "tim",
-            "id": "highways",
-            "paint": {
-                "line-color": "#312b6a",
-                "line-width": 2
-            },
-            "source-layer": "tim_nonegeojson"
-        },
+        
         {
             "interactive": true,
             "layout": {
@@ -1508,146 +1242,7 @@
             },
             "source-layer": "water_label"
         },
-        {
-            "interactive": true,
-            "layout": {
-                "text-optional": false,
-                "text-line-height": 1,
-                "text-size": 11.5,
-                "text-allow-overlap": true,
-                "icon-image": "water",
-                "symbol-avoid-edges": false,
-                "text-ignore-placement": false,
-                "text-font": [
-                    "Open Sans Condensed Bold",
-                    "Arial Unicode MS Regular"
-                ],
-                "icon-allow-overlap": true,
-                "symbol-placement": "point",
-                "visibility": "visible",
-                "text-offset": [
-                    0,
-                    0.9
-                ],
-                "icon-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.35
-                        ],
-                        [
-                            22,
-                            0.65
-                        ]
-                    ]
-                },
-                "text-anchor": "top",
-                "icon-padding": 0,
-                "text-max-width": 6,
-                "icon-ignore-placement": false
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "ports",
-            "paint": {
-                "text-color": "#396ab2",
-                "text-halo-width": 2,
-                "text-halo-color": "rgba(255,255,255,1)"
-            },
-            "source-layer": "ports_pts"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "icon-image": "rail",
-                "icon-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.35
-                        ],
-                        [
-                            22,
-                            0.65
-                        ]
-                    ]
-                },
-                "icon-allow-overlap": true,
-                "visibility": "visible"
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "intermodal",
-            "paint": {},
-            "source-layer": "intermodal_pts"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible",
-                "text-font": [
-                    "Open Sans Condensed Bold",
-                    "Arial Unicode MS Regular"
-                ],
-                "text-size": 11.5,
-                "icon-image": "rail",
-                "text-anchor": "center",
-                "icon-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.35
-                        ],
-                        [
-                            22,
-                            0.65
-                        ]
-                    ]
-                },
-                "text-offset": [
-                    0,
-                    1.2
-                ],
-                "icon-allow-overlap": true
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "rail-yards",
-            "paint": {
-                "text-halo-color": "#fff",
-                "text-halo-width": 2,
-                "text-color": "rgba(219,139,0,1)"
-            },
-            "source-layer": "rail_yards_pts"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "icon-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            0,
-                            0.35
-                        ],
-                        [
-                            22,
-                            0.65
-                        ]
-                    ]
-                },
-                "icon-image": "hwy",
-                "visibility": "visible"
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "truck-pk",
-            "paint": {},
-            "source-layer": "truck_parking_pts"
-        },
+        
         {
             "interactive": true,
             "minzoom": 8,
@@ -2411,62 +2006,7 @@
             },
             "source-layer": "highways"
         },
-        {
-            "interactive": true,
-            "minzoom": 10,
-            "layout": {
-                "text-size": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            8,
-                            8
-                        ],
-                        [
-                            20,
-                            17
-                        ]
-                    ]
-                },
-                "text-allow-overlap": false,
-                "text-transform": "none",
-                "symbol-spacing": {
-                    "base": 1,
-                    "stops": [
-                        [
-                            10,
-                            200
-                        ],
-                        [
-                            15,
-                            600
-                        ]
-                    ]
-                },
-                "text-font": [
-                    "Open Sans Semibold",
-                    "Arial Unicode MS Regular"
-                ],
-                "symbol-placement": "line",
-                "text-rotation-alignment": "map",
-                "text-keep-upright": true,
-                "text-field": "{NAME}"
-            },
-            "metadata": {
-                "mapbox:group": "1454505898173.9072"
-            },
-            "type": "symbol",
-            "source": "pff",
-            "id": "freight-rail-labels",
-            "paint": {
-                "text-halo-color": "rgba(255,157,0,1)",
-                "text-halo-blur": 0,
-                "text-color": "rgba(255,255,255,1)",
-                "text-opacity": 1,
-                "text-halo-width": 2
-            },
-            "source-layer": "freight_rail"
-        },
+        
         {
             "interactive": true,
             "minzoom": 10,
