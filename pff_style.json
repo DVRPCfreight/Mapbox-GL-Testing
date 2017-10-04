@@ -119,6 +119,10 @@
     },
     "sprite": "mapbox://sprites/mruane/cik5ms8hp002p04ly651sqxkm",
     "glyphs": "mapbox://fonts/mruane/{fontstack}/{range}.pbf",
+    "transition": {
+      "duration": 300,
+      "delay": 0
+    },
     "layers": [
         {
             "id": "background",
@@ -634,68 +638,6 @@
             },
             "type": "line",
             "source": "dvrpc_tim",
-            "id": "highways",
-            "paint": {
-                "line-color": "#d5d5d5",
-                "line-width": {
-                    "base": 1.4,
-                    "stops": [
-                        
-                        [
-                            12,
-                            2.6
-                        ],
-                        [
-                            13,
-                            4.6
-                        ],
-                        [
-                            16,
-                            7.6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "freeways"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
-            "id": "highway-inner",
-            "paint": {
-                "line-color": "#fff",
-                "line-width": {
-                    "base": 1,
-                    "stops": [
-                        
-                        [
-                            12,
-                            1
-                        ],
-                        [
-                            13,
-                            2
-                        ],
-                        [
-                            16,
-                            6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "freeways"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
             "id": "maj",
             "paint": {
                 "line-color": "#d5d5d5",
@@ -727,7 +669,256 @@
             },
             "type": "line",
             "source": "dvrpc_tim",
-            "id": "maj-inner",
+            "id": "minor_border",
+            "paint": {
+                "line-color": "#d5d5d5",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        
+                        [
+                            12,
+                            2.6
+                        ],
+                        [
+                            13,
+                            4.6
+                        ],
+                        [
+                            16,
+                            7.6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "minor_arterials"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "major_coll_border",
+            "paint": {
+                "line-color": "#d5d5d5",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        
+                        [
+                            12,
+                            2.6
+                        ],
+                        [
+                            13,
+                            4.6
+                        ],
+                        [
+                            16,
+                            7.6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "major_collectors"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "minor_coll_border",
+            "paint": {
+                "line-color": "#d5d5d5",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        
+                        [
+                            12,
+                            2.6
+                        ],
+                        [
+                            13,
+                            4.6
+                        ],
+                        [
+                            16,
+                            7.6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "minor_collectors"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "local_border",
+            "paint": {
+                "line-color": "#d5d5d5",
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        
+                        [
+                            14,
+                            1
+                        ],
+                        [
+                            15,
+                            4.4
+                        ],
+                        [
+                            16,
+                            5.6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "locals"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "locals",
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 0,
+                    "stops": [
+                        
+                        [
+                            14,
+                            1
+                        ],
+                        [
+                            15,
+                            1.5
+                        ],
+                        [
+                            16,
+                            4
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "locals"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "minor_collectors",
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            2
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "minor_collectors"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "major_collectors",
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            2
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "major_collectors"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "minor_arterials",
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            2
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "minor_arterials"
+        },
+        
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "major_arterials",
             "paint": {
                 "line-color": "#fff",
                 "line-width": {
@@ -750,6 +941,68 @@
                 }
             },
             "source-layer": "major_arterials"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "highways",
+            "paint": {
+                "line-color": "#d5d5d5",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        
+                        [
+                            12,
+                            2.6
+                        ],
+                        [
+                            13,
+                            4.6
+                        ],
+                        [
+                            16,
+                            7.6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "freeways"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "freeways",
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            2
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "freeways"
         },
         
         {
