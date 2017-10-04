@@ -15,6 +15,7 @@
 
 <body>
 	<div id='map'></div>
+	<div id="swatches" class="button" style="left:50px;position:absolute;">style that shit</div>
 	<div id="layerList"></div>
     <pre id="propertyList"></pre>
 	<script type="text/javascript">
@@ -36,6 +37,26 @@
 		// navigation control
 		var nav = new mapboxgl.NavigationControl();
 		map.addControl(nav, 'top-left');
+
+		var swatches = document.getElementById('swatches');
+
+		var swatch = document.createElement('button');
+	    swatch.style.backgroundColor = "#efefef";
+	    swatch.addEventListener('click', function() {
+	        map.setPaintProperty('maj-inner', 'line-color', 
+	        	{"property": 'typeno',
+                    "type": 'categorical',
+                	"stops": [
+	                    ['21', '#fbb03b'],
+	                    ['22', '#223b53'],
+	                    ['32', '#e55e5e'],
+	                    ['33', '#3bb2d0'],
+	                    ['31', '#ccc']
+	                ]
+                });
+	    });
+	    swatches.appendChild(swatch);
+
 
 	</script>
 </body>

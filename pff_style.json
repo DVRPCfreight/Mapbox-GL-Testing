@@ -107,6 +107,10 @@
             "url": "http://a.michaelruane.com/timNet.json",
             "type": "vector"
         },
+        "dvrpc_tim": {
+            "url": "http://a.michaelruane.com/dvrpc_tim.json",
+            "type": "vector"
+        },
 
         "mapbox://mapbox.mapbox-streets-v6": {
             "url": "mapbox://mapbox.mapbox-streets-v6",
@@ -629,7 +633,7 @@
                 "visibility": "visible"
             },
             "type": "line",
-            "source": "tim",
+            "source": "dvrpc_tim",
             "id": "highways",
             "paint": {
                 "line-color": "#d5d5d5",
@@ -652,7 +656,7 @@
                     ]
                 }
             },
-            "source-layer": "tim_nonegeojson"
+            "source-layer": "freeways"
         },
         {
             "interactive": true,
@@ -660,7 +664,7 @@
                 "visibility": "visible"
             },
             "type": "line",
-            "source": "tim",
+            "source": "dvrpc_tim",
             "id": "highway-inner",
             "paint": {
                 "line-color": "#fff",
@@ -683,7 +687,69 @@
                     ]
                 }
             },
-            "source-layer": "tim_nonegeojson"
+            "source-layer": "freeways"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "maj",
+            "paint": {
+                "line-color": "#d5d5d5",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        
+                        [
+                            12,
+                            2.6
+                        ],
+                        [
+                            13,
+                            4.6
+                        ],
+                        [
+                            16,
+                            7.6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "major_arterials"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "dvrpc_tim",
+            "id": "maj-inner",
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            2
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "major_arterials"
         },
         
         {
