@@ -6,17 +6,60 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <style>
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #map { position:absolute; top:56px; bottom:0; width:100%; }
     </style>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
-	<link href='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
+    
+	<link href='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet' />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 
 </head>
 
 <body>
+	<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Peeping TIM</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Highway View Options</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a id="hwy-no-style" class="dropdown-item" href="#">No Style</a>
+              <a id="hwy-fc-style" class="dropdown-item" href="#">Functional Class</a>
+              <a id="hwy-tl-style" class="dropdown-item" href="#">Travel Lane Count</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
 	<div id='map'></div>
+	<div id="legend" style="bottom: 40px;
+    right: 20px;
+    z-index: 10000;
+    position: absolute;
+    display: block;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: #fff"
+    >
+    </div>
+	<div id="swatches" class="button" style="left:50px;position:absolute;">style that shit</div>
 	<div id="layerList"></div>
     <pre id="propertyList"></pre>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js'></script>
 	<script type="text/javascript">
 		// Nota Bene:
 		// Please make sure to serve this file via a webserver as otherwise your browser might not load the external 'style.json' file
@@ -36,6 +79,60 @@
 		// navigation control
 		var nav = new mapboxgl.NavigationControl();
 		map.addControl(nav, 'top-left');
+
+
+		// define functional class colors
+		const _01_freeway = '#fdb462';
+		const _02_parkway = '#b3de69';
+		const _03_major_art = '#bc80bd';
+		const _04_minor_art = '#bebada';
+		const _05_major_coll = '#8dd3c7';
+		const _06_minor_coll = '#ccebc5';
+		const _07_local = '#fccde5';
+		const _08_ramp = '#fb8072';
+		const _09_other = '#d9d9d9';
+
+		const highway_layers = ['freeways', 'major_arterials', 'minor_arterials', 'major_collectors', 'minor_collectors', 'locals'];
+
+		const fc_legend = '<i class="fa fa-minus" style="color:'+_01_freeway+'"></i>&nbsp;&nbsp;Freeway<br/><i class="fa fa-minus" style="color:'+_02_parkway+'"></i>&nbsp;&nbsp;Parkway<br/><i class="fa fa-minus" style="color:'+_03_major_art+'"></i>&nbsp;&nbsp;Major Arterial<br/><i class="fa fa-minus" style="color:'+_04_minor_art+'"></i>&nbsp;&nbsp;Minor Arterial<br/><i class="fa fa-minus" style="color:'+_05_major_coll+'"></i>&nbsp;&nbsp;Major Collector<br/><i class="fa fa-minus" style="color:'+_06_minor_coll+'"></i>&nbsp;&nbsp;Minor Collector<br/><i class="fa fa-minus" style="color:'+_07_local+'"></i>&nbsp;&nbsp;Local<br/><i class="fa fa-minus" style="color:'+_08_ramp+'"></i>&nbsp;&nbsp;Ramp<br/>';
+
+		const tl_legend = '<i class="fa fa-minus" style="color:#fef0d9"></i>&nbsp;&nbsp;1 lane<br/><i class="fa fa-minus" style="color:#fdbb84"></i>&nbsp;&nbsp;2 lane<br/><i class="fa fa-minus" style="color:#fc8d59"></i>&nbsp;&nbsp;3 lane<br/><i class="fa fa-minus" style="color:#e34a33"></i>&nbsp;&nbsp;4+ lane<br/>';
+
+		var legend = document.getElementById('legend');
+
+		// style plain
+		var highwayPlainButton = document.getElementById('hwy-no-style');
+	    highwayPlainButton.addEventListener('click', function(){
+	    	clearHighwayStyle();
+	    });
+	    
+	    
+
+	    function clearHighwayStyle(){
+	    	legend.innerHTML = "";
+	    	map.setFilter('highways-fc-styled', ["in", "typeno", " "]);
+	    	map.setFilter('locals-fc-styled', ["in", "typeno", " "]);
+	    	map.setFilter('highways-lanes-styled', ["in", "typeno", " "]);
+	    	map.setFilter('locals-lanes-styled', ["in", "typeno", " "]);
+	    }
+
+		// style by functional class
+		var highwayFunctionalButton = document.getElementById('hwy-fc-style');
+	    highwayFunctionalButton.addEventListener('click', function() {
+	    	clearHighwayStyle()
+	    	legend.innerHTML = fc_legend;
+	    	map.setFilter('highways-fc-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
+	    	map.setFilter('locals-fc-styled', ["in", "typeno", "71","72","73","75","76","79"]);
+	    });
+
+	    // style by lane count
+		var highwayFunctionalButton = document.getElementById('hwy-tl-style');
+	    highwayFunctionalButton.addEventListener('click', function() {
+	    	clearHighwayStyle()
+	    	legend.innerHTML = tl_legend;
+	    	map.setFilter('highways-lanes-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
+	    	map.setFilter('locals-lanes-styled', ["in", "typeno", "71","72","73","75","76","79"]);
+	    });
 
 	</script>
 </body>
