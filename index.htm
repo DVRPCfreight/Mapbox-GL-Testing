@@ -11,6 +11,7 @@
     
 	<link href='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet' />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 
 </head>
@@ -39,6 +40,17 @@
       </div>
     </nav>
 	<div id='map'></div>
+	<div id="legend" style="bottom: 40px;
+    right: 20px;
+    z-index: 10000;
+    position: absolute;
+    display: block;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: #fff"
+    >
+    </div>
 	<div id="swatches" class="button" style="left:50px;position:absolute;">style that shit</div>
 	<div id="layerList"></div>
     <pre id="propertyList"></pre>
@@ -82,13 +94,22 @@
 
 		const highway_layers = ['freeways', 'major_arterials', 'minor_arterials', 'major_collectors', 'minor_collectors', 'locals'];
 
+		const fc_legend = '<i class="fa fa-minus" style="color:'+_01_freeway+'"></i>&nbsp;&nbsp;Freeway<br/><i class="fa fa-minus" style="color:'+_02_parkway+'"></i>&nbsp;&nbsp;Parkway<br/><i class="fa fa-minus" style="color:'+_03_major_art+'"></i>&nbsp;&nbsp;Major Arterial<br/><i class="fa fa-minus" style="color:'+_04_minor_art+'"></i>&nbsp;&nbsp;Minor Arterial<br/><i class="fa fa-minus" style="color:'+_05_major_coll+'"></i>&nbsp;&nbsp;Major Collector<br/><i class="fa fa-minus" style="color:'+_06_minor_coll+'"></i>&nbsp;&nbsp;Minor Collector<br/><i class="fa fa-minus" style="color:'+_07_local+'"></i>&nbsp;&nbsp;Local<br/><i class="fa fa-minus" style="color:'+_08_ramp+'"></i>&nbsp;&nbsp;Ramp<br/>';
+
+		const tl_legend = '<i class="fa fa-minus" style="color:#fef0d9"></i>&nbsp;&nbsp;1 lane<br/><i class="fa fa-minus" style="color:#fdbb84"></i>&nbsp;&nbsp;2 lane<br/><i class="fa fa-minus" style="color:#fc8d59"></i>&nbsp;&nbsp;3 lane<br/><i class="fa fa-minus" style="color:#e34a33"></i>&nbsp;&nbsp;4+ lane<br/>';
+
+		var legend = document.getElementById('legend');
+
 		// style plain
 		var highwayPlainButton = document.getElementById('hwy-no-style');
 	    highwayPlainButton.addEventListener('click', function(){
 	    	clearHighwayStyle();
 	    });
 	    
+	    
+
 	    function clearHighwayStyle(){
+	    	legend.innerHTML = "";
 	    	map.setFilter('highways-fc-styled', ["in", "typeno", " "]);
 	    	map.setFilter('locals-fc-styled', ["in", "typeno", " "]);
 	    	map.setFilter('highways-lanes-styled', ["in", "typeno", " "]);
@@ -99,6 +120,7 @@
 		var highwayFunctionalButton = document.getElementById('hwy-fc-style');
 	    highwayFunctionalButton.addEventListener('click', function() {
 	    	clearHighwayStyle()
+	    	legend.innerHTML = fc_legend;
 	    	map.setFilter('highways-fc-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
 	    	map.setFilter('locals-fc-styled', ["in", "typeno", "71","72","73","75","76","79"]);
 	    });
@@ -107,6 +129,7 @@
 		var highwayFunctionalButton = document.getElementById('hwy-tl-style');
 	    highwayFunctionalButton.addEventListener('click', function() {
 	    	clearHighwayStyle()
+	    	legend.innerHTML = tl_legend;
 	    	map.setFilter('highways-lanes-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
 	    	map.setFilter('locals-lanes-styled', ["in", "typeno", "71","72","73","75","76","79"]);
 	    });
