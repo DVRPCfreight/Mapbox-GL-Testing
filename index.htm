@@ -32,7 +32,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a id="hwy-no-style" class="dropdown-item" href="#">No Style</a>
               <a id="hwy-fc-style" class="dropdown-item" href="#">Functional Class</a>
-              <a id="hwy-tl-styles" class="dropdown-item" href="#">Travel Lane Count</a>
+              <a id="hwy-tl-style" class="dropdown-item" href="#">Travel Lane Count</a>
             </div>
           </li>
         </ul>
@@ -84,56 +84,32 @@
 
 		// style plain
 		var highwayPlainButton = document.getElementById('hwy-no-style');
-	    highwayPlainButton.addEventListener('click', function() {
-	    	highway_layers.forEach(function(name){
-	    		map.setPaintProperty(name, 'line-color', '#ffffff');
-	    	});
+	    highwayPlainButton.addEventListener('click', function(){
+	    	clearHighwayStyle();
 	    });
-
+	    
+	    function clearHighwayStyle(){
+	    	map.setFilter('highways-fc-styled', ["in", "typeno", " "]);
+	    	map.setFilter('locals-fc-styled', ["in", "typeno", " "]);
+	    	map.setFilter('highways-lanes-styled', ["in", "typeno", " "]);
+	    	map.setFilter('locals-lanes-styled', ["in", "typeno", " "]);
+	    }
 
 		// style by functional class
 		var highwayFunctionalButton = document.getElementById('hwy-fc-style');
 	    highwayFunctionalButton.addEventListener('click', function() {
-	    	highway_layers.forEach(function(name){
-	    		map.setPaintProperty(name, 'line-color', 
-	        	{"property": 'typeno',
-				    "type": 'categorical',
-					"stops": [
-				        ['11', _01_freeway],
-				        ['12', _01_freeway],
-				        ['13', _01_freeway],
-				        ['21', _02_parkway],
-				        ['22', _02_parkway],
-				        ['23', _02_parkway],
-				        ['31', _03_major_art],
-				        ['32', _03_major_art],
-				        ['33', _03_major_art],
-				        ['41', _04_minor_art],
-				        ['42', _04_minor_art],
-				        ['43', _04_minor_art],
-				        ['51', _05_major_coll],
-				        ['52', _05_major_coll],
-				        ['53', _05_major_coll],
-				        ['61', _06_minor_coll],
-				        ['62', _06_minor_coll],
-				        ['63', _06_minor_coll],
-				        ['71', _07_local],
-				        ['72', _07_local],
-				        ['73', _07_local],
-				        ['75', _07_local],
-				        ['76', _07_local],
-				        ['79', _07_local],
-				        ['81', _08_ramp],
-				        ['82', _08_ramp],
-				        ['83', _08_ramp],
-				        ['85', _08_ramp],
-				        ['86', _08_ramp],
-				        ['92', _09_other]
-				    ]
-				});
-	    	});
+	    	clearHighwayStyle()
+	    	map.setFilter('highways-fc-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
+	    	map.setFilter('locals-fc-styled', ["in", "typeno", "71","72","73","75","76","79"]);
 	    });
 
+	    // style by lane count
+		var highwayFunctionalButton = document.getElementById('hwy-tl-style');
+	    highwayFunctionalButton.addEventListener('click', function() {
+	    	clearHighwayStyle()
+	    	map.setFilter('highways-lanes-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
+	    	map.setFilter('locals-lanes-styled', ["in", "typeno", "71","72","73","75","76","79"]);
+	    });
 
 	</script>
 </body>

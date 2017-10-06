@@ -103,15 +103,10 @@
             "url": "http://dvrpc-freight.michaelruane.com/pff_tiles.json",
             "type": "vector"
         },
-        "tim": {
-            "url": "http://a.michaelruane.com/timNet.json",
+        "tim_network": {
+            "url": "http://a.michaelruane.com/tim_highways.json",
             "type": "vector"
         },
-        "dvrpc_tim": {
-            "url": "http://a.michaelruane.com/dvrpc_tim.json",
-            "type": "vector"
-        },
-
         "mapbox://mapbox.mapbox-streets-v6": {
             "url": "mapbox://mapbox.mapbox-streets-v6",
             "type": "vector"
@@ -637,132 +632,13 @@
                 "visibility": "visible"
             },
             "type": "line",
-            "source": "dvrpc_tim",
-            "id": "maj",
-            "paint": {
-                "line-color": "#d5d5d5",
-                "line-width": {
-                    "base": 1.4,
-                    "stops": [
-                        
-                        [
-                            12,
-                            2.6
-                        ],
-                        [
-                            13,
-                            4.6
-                        ],
-                        [
-                            16,
-                            7.6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "major_arterials"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
-            "id": "minor_border",
-            "paint": {
-                "line-color": "#d5d5d5",
-                "line-width": {
-                    "base": 1.4,
-                    "stops": [
-                        
-                        [
-                            12,
-                            2.6
-                        ],
-                        [
-                            13,
-                            4.6
-                        ],
-                        [
-                            16,
-                            7.6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "minor_arterials"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
-            "id": "major_coll_border",
-            "paint": {
-                "line-color": "#d5d5d5",
-                "line-width": {
-                    "base": 1.4,
-                    "stops": [
-                        
-                        [
-                            12,
-                            2.6
-                        ],
-                        [
-                            13,
-                            4.6
-                        ],
-                        [
-                            16,
-                            7.6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "major_collectors"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
-            "id": "minor_coll_border",
-            "paint": {
-                "line-color": "#d5d5d5",
-                "line-width": {
-                    "base": 1.4,
-                    "stops": [
-                        
-                        [
-                            12,
-                            2.6
-                        ],
-                        [
-                            13,
-                            4.6
-                        ],
-                        [
-                            16,
-                            7.6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "minor_collectors"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
+            "source": "tim_network",
             "id": "local_border",
+            "filter": [
+                "in",
+                "typeno",
+                "71","72","73","75","76","79"
+            ],
             "paint": {
                 "line-color": "#d5d5d5",
                 "line-width": {
@@ -784,7 +660,7 @@
                     ]
                 }
             },
-            "source-layer": "locals"
+            "source-layer": "highways"
         },
         {
             "interactive": true,
@@ -792,164 +668,13 @@
                 "visibility": "visible"
             },
             "type": "line",
-            "source": "dvrpc_tim",
-            "id": "locals",
-            "paint": {
-                "line-color": "#fff",
-                "line-width": {
-                    "base": 0,
-                    "stops": [
-                        
-                        [
-                            14,
-                            1
-                        ],
-                        [
-                            15,
-                            1.5
-                        ],
-                        [
-                            16,
-                            4
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "locals"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
-            "id": "minor_collectors",
-            "paint": {
-                "line-color": "#fff",
-                "line-width": {
-                    "base": 1,
-                    "stops": [
-                        
-                        [
-                            12,
-                            1
-                        ],
-                        [
-                            13,
-                            2
-                        ],
-                        [
-                            16,
-                            6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "minor_collectors"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
-            "id": "major_collectors",
-            "paint": {
-                "line-color": "#fff",
-                "line-width": {
-                    "base": 1,
-                    "stops": [
-                        
-                        [
-                            12,
-                            1
-                        ],
-                        [
-                            13,
-                            2
-                        ],
-                        [
-                            16,
-                            6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "major_collectors"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
-            "id": "minor_arterials",
-            "paint": {
-                "line-color": "#fff",
-                "line-width": {
-                    "base": 1,
-                    "stops": [
-                        
-                        [
-                            12,
-                            1
-                        ],
-                        [
-                            13,
-                            2
-                        ],
-                        [
-                            16,
-                            6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "minor_arterials"
-        },
-        
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
-            "id": "major_arterials",
-            "paint": {
-                "line-color": "#fff",
-                "line-width": {
-                    "base": 1,
-                    "stops": [
-                        
-                        [
-                            12,
-                            1
-                        ],
-                        [
-                            13,
-                            2
-                        ],
-                        [
-                            16,
-                            6
-                        ]
-                    ]
-                }
-            },
-            "source-layer": "major_arterials"
-        },
-        {
-            "interactive": true,
-            "layout": {
-                "visibility": "visible"
-            },
-            "type": "line",
-            "source": "dvrpc_tim",
-            "id": "highways",
+            "source": "tim_network",
+            "id": "highways_border",
+            "filter": [
+                "!in",
+                "typeno",
+                "71","72","73","75","76","79"
+            ],
             "paint": {
                 "line-color": "#d5d5d5",
                 "line-width": {
@@ -971,7 +696,44 @@
                     ]
                 }
             },
-            "source-layer": "freeways"
+            "source-layer": "highways"
+        },
+        
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "tim_network",
+            "id": "locals",
+            "filter": [
+                "in",
+                "typeno",
+                "71","72","73","75","76","79"
+            ],
+            "paint": {
+                "line-color": "#fff",
+                "line-width": {
+                    "base": 0,
+                    "stops": [
+                        
+                        [
+                            14,
+                            1
+                        ],
+                        [
+                            15,
+                            1.5
+                        ],
+                        [
+                            16,
+                            4
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "highways"
         },
         {
             "interactive": true,
@@ -979,8 +741,13 @@
                 "visibility": "visible"
             },
             "type": "line",
-            "source": "dvrpc_tim",
-            "id": "freeways",
+            "source": "tim_network",
+            "id": "highways",
+            "filter": [
+                "!in",
+                "typeno",
+                "71","72","73","75","76","79"
+            ],
             "paint": {
                 "line-color": "#fff",
                 "line-width": {
@@ -1002,7 +769,234 @@
                     ]
                 }
             },
-            "source-layer": "freeways"
+            "source-layer": "highways"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "tim_network",
+            "id": "locals-fc-styled",
+            "filter": [
+                "in",
+                "typeno",
+                " "
+            ],
+            "paint": {
+                "line-color": {"property": "typeno",
+                    "type": "categorical",
+                    "stops": [
+                        ["11", "#fdb462"],
+                        ["12", "#fdb462"],
+                        ["13", "#fdb462"],
+                        ["21", "#b3de69"],
+                        ["22", "#b3de69"],
+                        ["23", "#b3de69"],
+                        ["31", "#bc80bd"],
+                        ["32", "#bc80bd"],
+                        ["33", "#bc80bd"],
+                        ["41", "#bebada"],
+                        ["42", "#bebada"],
+                        ["43", "#bebada"],
+                        ["51", "#8dd3c7"],
+                        ["52", "#8dd3c7"],
+                        ["53", "#8dd3c7"],
+                        ["61", "#ccebc5"],
+                        ["62", "#ccebc5"],
+                        ["63", "#ccebc5"],
+                        ["71", "#fccde5"],
+                        ["72", "#fccde5"],
+                        ["73", "#fccde5"],
+                        ["75", "#fccde5"],
+                        ["76", "#fccde5"],
+                        ["79", "#fccde5"],
+                        ["81", "#fb8072"],
+                        ["82", "#fb8072"],
+                        ["83", "#fb8072"],
+                        ["85", "#fb8072"],
+                        ["86", "#fb8072"],
+                        ["92", "#d9d9d9"]
+                    ]
+                },
+                "line-width": {
+                    "base": 0,
+                    "stops": [
+                        
+                        [
+                            14,
+                            1
+                        ],
+                        [
+                            15,
+                            1.5
+                        ],
+                        [
+                            16,
+                            4
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "highways"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "tim_network",
+            "id": "locals-lanes-styled",
+            "filter": [
+                "in",
+                "typeno",
+                " "
+            ],
+            "paint": {
+                "line-color": {"property": "numlames",
+                    "stops": [
+                        [1, "#fef0d9"], 
+                        [2, "#fdbb84"],
+                        [3, "#fc8d59"], 
+                        [4, "#e34a33"]
+                    ]
+                },
+                "line-width": {
+                    "base": 0,
+                    "stops": [
+                        
+                        [
+                            14,
+                            1
+                        ],
+                        [
+                            15,
+                            1.5
+                        ],
+                        [
+                            16,
+                            4
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "highways"
+        },
+        
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "tim_network",
+            "id": "highways-fc-styled",
+            "filter": [
+                "in",
+                "typeno",
+                " "
+            ],
+            "paint": {
+                "line-color": {"property": "typeno",
+                    "type": "categorical",
+                    "stops": [
+                        ["11", "#fdb462"],
+                        ["12", "#fdb462"],
+                        ["13", "#fdb462"],
+                        ["21", "#b3de69"],
+                        ["22", "#b3de69"],
+                        ["23", "#b3de69"],
+                        ["31", "#bc80bd"],
+                        ["32", "#bc80bd"],
+                        ["33", "#bc80bd"],
+                        ["41", "#bebada"],
+                        ["42", "#bebada"],
+                        ["43", "#bebada"],
+                        ["51", "#8dd3c7"],
+                        ["52", "#8dd3c7"],
+                        ["53", "#8dd3c7"],
+                        ["61", "#ccebc5"],
+                        ["62", "#ccebc5"],
+                        ["63", "#ccebc5"],
+                        ["71", "#fccde5"],
+                        ["72", "#fccde5"],
+                        ["73", "#fccde5"],
+                        ["75", "#fccde5"],
+                        ["76", "#fccde5"],
+                        ["79", "#fccde5"],
+                        ["81", "#fb8072"],
+                        ["82", "#fb8072"],
+                        ["83", "#fb8072"],
+                        ["85", "#fb8072"],
+                        ["86", "#fb8072"],
+                        ["92", "#d9d9d9"]
+                    ]
+                },
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            2
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "highways"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "line",
+            "source": "tim_network",
+            "id": "highways-lanes-styled",
+            "filter": [
+                "in",
+                "typeno",
+                " "
+            ],
+            "paint": {
+                "line-color": {"property": "numlames",
+                    "stops": [
+                        [1, "#fef0d9"], 
+                        [2, "#fdbb84"],
+                        [3, "#fc8d59"], 
+                        [4, "#e34a33"]
+                    ]
+                },
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            2
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "highways"
         },
         
         {
