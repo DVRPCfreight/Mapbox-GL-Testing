@@ -116,12 +116,7 @@
 
 		var legend = document.getElementById('legend');
 
-		// style plain
-		var highwayPlainButton = document.getElementById('hwy-no-style');
-	    highwayPlainButton.addEventListener('click', function(){
-	    	clearHighwayStyle();
-	    });
-	    
+		
 	    
 
 	    function clearHighwayStyle(){
@@ -149,23 +144,7 @@
 	    		}
 	    });
 
-		// style by functional class
-		var highwayFunctionalButton = document.getElementById('hwy-fc-style');
-	    highwayFunctionalButton.addEventListener('click', function() {
-	    	clearHighwayStyle()
-	    	legend.innerHTML = fc_legend;
-	    	map.setFilter('highways-fc-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
-	    	map.setFilter('locals-fc-styled', ["in", "typeno", "71","72","73","75","76","79"]);
-	    });
-
-	    // style by lane count
-		var highwayFunctionalButton = document.getElementById('hwy-tl-style');
-	    highwayFunctionalButton.addEventListener('click', function() {
-	    	clearHighwayStyle()
-	    	legend.innerHTML = tl_legend;
-	    	map.setFilter('highways-lanes-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
-	    	map.setFilter('locals-lanes-styled', ["in", "typeno", "71","72","73","75","76","79"]);
-	    });
+		
 
 	</script>
 </body>
