@@ -1013,7 +1013,7 @@
             "filter": [
                 "in",
                 "linename",
-                "DOY"
+                " "
             ],
             "paint": {
                 "line-color": "#fb8072",

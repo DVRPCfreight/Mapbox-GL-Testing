@@ -26,20 +26,36 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Highway <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="navbar-nav">
+          		<a class="nav-link" href="transit.htm">Transit </a>
+          </li>
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Highway View Options</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a id="hwy-no-style" class="dropdown-item" href="#">No Style</a>
               <a id="hwy-fc-style" class="dropdown-item" href="#">Functional Class</a>
               <a id="hwy-tl-style" class="dropdown-item" href="#">Travel Lane Count</a>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>
 	<div id='map'></div>
+	<div style="position:absolute; right:20px; top:75px">
+	  <div id="style-selector" class="btn-group btn-group-vertical" data-toggle="buttons">
+	    <label style="margin-bottom: .2rem;" class="btn btn-md btn-block well btn-primary active">
+	      <input type="radio" name="hwy-render-state" value="hwy-no-style"> No Style
+	    </label>
+	    <label style="margin-bottom: .2rem;" class="btn btn-md btn-block well btn-primary">
+	      <input type="radio" name="hwy-render-state" value="hwy-fc-style"> Functional Class
+	    </label>
+	    <label style="margin-bottom: .2rem;" class="btn btn-md btn-block well btn-primary">
+	      <input type="radio" name="hwy-render-state" value="hwy-tl-style"> Travel Lane Count
+	    </label>
+	  </div>
+	</div>
 	<div id="legend" style="bottom: 40px;
     right: 20px;
     z-index: 10000;
@@ -115,6 +131,23 @@
 	    	map.setFilter('highways-lanes-styled', ["in", "typeno", " "]);
 	    	map.setFilter('locals-lanes-styled', ["in", "typeno", " "]);
 	    }
+
+	    $('input[type=radio][name=hwy-render-state]').on('change', function() {
+	    		
+	    		if($(this).val() == 'hwy-no-style'){
+	    			clearHighwayStyle();
+	    		} else if($(this).val() == 'hwy-fc-style'){
+	    			clearHighwayStyle()
+			    	legend.innerHTML = fc_legend;
+			    	map.setFilter('highways-fc-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
+			    	map.setFilter('locals-fc-styled', ["in", "typeno", "71","72","73","75","76","79"]);
+	    		} else if($(this).val() == 'hwy-tl-style'){
+	    			clearHighwayStyle()
+			    	legend.innerHTML = tl_legend;
+			    	map.setFilter('highways-lanes-styled', ["!in", "typeno", "71","72","73","75","76","79"]);
+			    	map.setFilter('locals-lanes-styled', ["in", "typeno", "71","72","73","75","76","79"]);
+	    		}
+	    });
 
 		// style by functional class
 		var highwayFunctionalButton = document.getElementById('hwy-fc-style');
