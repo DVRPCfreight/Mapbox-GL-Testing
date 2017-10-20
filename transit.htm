@@ -99,6 +99,7 @@
 	    $('#route-submit').on('click', function(){
 	    	var lineName = $('#route').val();
 	    	map.setFilter('transit-lines', ["in", "linename", lineName]);
+	    	map.setFilter('transit-labels', ["in", "linename", lineName]);
 	    	
 	    	var relatedFeatures = reference.querySourceFeatures('tim_transit', {
 	            sourceLayer: 'transit_lines',
