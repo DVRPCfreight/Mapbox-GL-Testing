@@ -1038,6 +1038,81 @@
             },
             "source-layer": "transit_lines"
         },
+         {
+            "interactive": true,
+            "minzoom": 10,
+            "layout": {
+                "text-size": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            8,
+                            8
+                        ],
+                        [
+                            20,
+                            17
+                        ]
+                    ]
+                },
+                "symbol-avoid-edges": false,
+                "text-ignore-placement": false,
+                "text-font": [
+                    "Open Sans Semibold",
+                    "Arial Unicode MS Regular"
+                ],
+                "symbol-placement": "line",
+                "text-rotation-alignment": "map",
+                "text-keep-upright": true,
+                "text-field": "{linename}"
+            },
+            "type": "symbol",
+            "source": "tim_transit",
+            "id": "transit-labels",
+            "filter": [
+                "in",
+                "linename",
+                " "
+            ],
+            "paint": {
+                "text-halo-color": "#fff",
+                "text-halo-width": 2,
+                "text-color": "#fb8072",
+                "text-opacity": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            0,
+                            0
+                        ],
+                        [
+                            10,
+                            1
+                        ],
+                        [
+                            22,
+                            1
+                        ]
+                    ]
+                }
+            },
+            "source-layer": "transit_lines"
+        },
+        {
+            "interactive": true,
+            "layout": {
+                "visibility": "visible"
+            },
+            "type": "circle",
+            "source": "tim_transit",
+            "id": "transit-stops",
+            
+            "paint": {
+                "circle-radius": 4,
+                "circle-color": "#fb8072"
+            },
+            "source-layer": "transit_stops"
+        },
         
         {
             "interactive": true,
