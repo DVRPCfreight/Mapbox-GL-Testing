@@ -1,0 +1,228 @@
+<html lang="en" data-assembly-focus-control="not-visible"><head>
+    <title>Greater Philadelphia Truck Activity</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css" rel="stylesheet">
+    <script async="" defer="" src="https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.js"></script>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+   
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .mapboxgl-ctrl-top-right {
+        filter: invert(100%);
+    }
+    </style>
+  
+</head>
+
+<body>
+    <div class="viewport-full relative clip">
+        <div class="viewport-almost viewport-full-ml relative">
+            <div id="map" class="map absolute top left right bottom mapboxgl-map"><div class="mapboxgl-missing-css">Missing Mapbox GL JS CSS</div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="2256" height="1338" style="position: absolute; width: 1504px; height: 892px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-group"><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-zoom-in" type="button" aria-label="Zoom In"></button><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-zoom-out" type="button" aria-label="Zoom Out"></button><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-compass" type="button" aria-label="Reset North"><span class="mapboxgl-ctrl-compass-arrow" style="transform: rotate(0deg);"></span></button></div><div class="mapboxgl-ctrl mapboxgl-ctrl-group"><button class="mapboxgl-ctrl-icon mapboxgl-ctrl-geolocate" type="button" aria-label="Geolocate"></button></div></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://www.mapbox.com/feedback/?owner=mapbox&amp;id=dark-v9&amp;access_token=pk.eyJ1IjoicnNiYXVtYW5uIiwiYSI6ImNqOXJ2azFpdjBobnMzMnBvbXZ0MnNrMzcifQ.K4XOQbniZ21D269ItRFYPQ#/-120/50/2" target="_blank">Improve this map</a></div></div></div></div>
+        </div>
+        <div class="absolute top-ml left z1 w-full w300-ml mx12 my12 px12 py12 bg-gray-dark">
+            <div class="viewport-almost h-auto-ml hmax-full round-ml shadow-darken5 scroll-auto">
+                <div class="py12 scroll-hidden color-white prose">
+                    <h3>Truck Activity in Greater Philadelphia</h3>
+                    <p>April 1, 2018 to April 3, 2018</p>
+                    <div class="select-container py12">
+                        <div class="py6 px12 color-white txt-bold txt-m"> Vehicle Type </div>
+                        <select class="select" id="selectVehtype">
+                            <option value="all">All Trucks</option>
+                            <option value="medium">Medium Trucks</option>
+                            <option value="heavy">Heavy Trucks</option>
+                            <!-- <option value="brw-gre-rgba">All Trucks</option>
+                            <option value="blue-purple-rgba">Medium Trucks</option>
+                            <option value="purple-red-rgba">Heavy Trucks</option> -->
+                        </select>
+                        <div class="select-arrow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibXJ1YW5lIiwiYSI6ImNpZ3dnaGF1bjBzNGZ3N201bTQwN3h6YngifQ.pw1khldm3UDHd56okxc5bQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v9?optimize=true',
+        center: [-120, 50],
+        zoom: 2,
+        maxZoom: 18,
+        minZoom: 1,
+        hash: true
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.GeolocateControl());
+
+    var colors = {
+        "blue-purple-rgba": [
+            "rgba(106, 52, 47, 0)",
+            "rgba(144, 76, 94, 1)",
+            "rgba(162, 110, 151, 1)",
+            "rgba(151, 155, 205, 1)",
+            "rgba(110, 202, 242, 1)",
+            "rgba(60, 248, 249, 1)"
+        ],
+        "brw-gre-rgba": [
+            'rgba(140,81,10,0)',
+            'rgb(216,179,101)',
+            'rgb(246,232,195)',
+            'rgb(199,234,229)',
+            'rgb(90,180,172)',
+            'rgb(1,102,94)'
+        ],
+        "purple-red-rgba": [
+            'rgba(241,238,246,0)',
+            'rgb(212,185,218)',
+            'rgb(201,148,199)',
+            'rgb(223,101,176)',
+            'rgb(221,28,119)',
+            'rgb(152,0,67)'
+        ]
+    }
+
+    function generateColorExpression(selected_colors) {
+        return ['interpolate', ['linear'],
+            ['heatmap-density'],
+            0, colors[selected_colors][0],
+            0.2, colors[selected_colors][1],
+            0.4, colors[selected_colors][2],
+            0.6, colors[selected_colors][3],
+            0.8, colors[selected_colors][4],
+            1, colors[selected_colors][5]
+        ]
+    }
+
+    var vehicleFilters = {
+        "all" : [
+            "in", "v", 2,3
+        ],
+        "medium" : [
+            "==", "v", 2
+        ],
+        "heavy" : [
+            "==", "v", 3
+        ]
+    }
+
+    var selected_color = "brw-gre-rgba";
+    var selected_vehtype = "all"
+
+    map.on('style.load', function() {
+
+        document.getElementById('selectVehtype').addEventListener('change', function(e) {
+            let prior_vehtype = selected_vehtype;
+            selected_vehtype = e.target.value;
+
+            map.setFilter('adv-heat', vehicleFilters[selected_vehtype]);
+        })
+        map.addSource('fc-data', {
+            "url": "https://tiles.dvrpc.org/data/dvrpc-freight-story.json",
+            "type": "vector"
+        })
+        map.addLayer({
+            "id": "all-fc-fill",
+            "type": "fill",
+            "source": "fc-data",
+            'source-layer': 'freight-centers',
+            'paint': {
+                "fill-opacity": 0.4,
+                'fill-color': {
+                    property: 'fctyp',
+                    stops: [
+                        [1, '#f4bd48'],
+                        [2, '#ef7e51'],
+                        [3, '#ca4b66'],
+                        [4, '#883272'],
+                        [5, '#312867']
+                    ]
+                },
+            }
+        }, 'waterway-label');
+        map.addSource('heatmap', {
+            "type": "vector",
+	        "url": "https://tiles.dvrpc.org/data/freight-inrix.json"
+        })
+        map.addLayer({
+            "id": "adv-heat",
+            "type": "heatmap",
+            "source": "heatmap",
+            "source-layer": "truck",
+            "maxzoom": 20.1,
+            "filter": vehicleFilters[selected_vehtype],
+            "paint": {
+                //Increase the heatmap weight based on frequency and property magnitude
+                "heatmap-weight": [
+                    'interpolate', ['exponential', 1.5],
+                    ['zoom'],
+                    0, ['interpolate', ['linear'],
+                        ['get', 'density'], 0, 0, 25, 1
+                    ],
+                    18.1, ['interpolate', ['linear'],
+                        ['get', 'density'], 0, 0, 15, 1
+                    ],
+                ],
+                "heatmap-color": generateColorExpression(selected_color),
+                "heatmap-radius": [
+                    'interpolate', ['exponential', 1.5],
+                    ['zoom'],
+                    0, 5,
+                    18.1, 20
+                ],
+                "heatmap-intensity": [
+                  "interpolate",
+                  ["linear"],
+                  ["zoom"],
+                  0,0.25,
+                  0.99,1,
+                  1,0.25,
+                  1.99,1,
+                  2,0.25,
+                  2.99,1,
+                  3,0.25,
+                  3.99,1,
+                  4,0.25,
+                  4.99,1,
+                  5,0.25,
+                  5.99,1,
+                  6,0.25,
+                  6.99,1,
+                  7,0.25,
+                  7.99,1,
+                  8,0.25,
+                  8.99,1,
+                  9,0.25,
+                  9.99,1,
+                  10,0.25,
+                  10.99,1,
+                  11,0.25,
+                  11.99,1,
+                  12,0.25,
+                  18.99,2
+                ],
+                "heatmap-opacity": [
+                    "interpolate", ["exponential", 1.5],
+                    ["zoom"],
+                    16, 1,
+                    18.1, 0.6
+                ],
+            }
+        }, 'waterway-label');
+        
+    });
+    </script>
+</html>
+
